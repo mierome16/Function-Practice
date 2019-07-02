@@ -3,6 +3,13 @@
 // arguments and returns the largest of them. Use the 
 // if-then-else construct available in JavaScript.
 // ---------------------
+function max(a,b) {
+    if (a>b) {
+        return a
+    } else {
+        return b
+    }
+}
 
 console.assert(max(2,3) === 3)
 console.assert(max(23,24) === 24)
@@ -12,6 +19,9 @@ console.assert(max(-23, 12) === 12)
 // Define a function maxOfThree() that takes three 
 // numbers as arguments and returns the largest of them.
 // ---------------------
+function maxOfThree(a,b,c) {
+    return Math.max(a,b,c);
+}
 
 console.assert(maxOfThree(2,56,3) === 56)
 console.assert(maxOfThree(12,3,4) === 12)
@@ -22,6 +32,9 @@ console.assert(maxOfThree(-12,4,-5) === 4)
 // string of length 1) and returns true if it is a 
 // vowel, false otherwise.
 // ---------------------
+function isVowel(x) {  
+    return /[AEIOUaeiou]/.test(x); 
+  }
 
 console.assert(isVowel(0) === false);
 console.assert(isVowel("B") === false);
@@ -37,6 +50,20 @@ console.assert(isVowel("2") === false)
 // For example, translate("this is fun") should return 
 // the string "tothohisos isos fofunon".
 // ---------------------
+function rovarspraket(str) {
+    var y = ''
+    if(typeof str !== 'string') {
+        return str + ''
+    }
+    for (i = 0; i < str.length; i++) {
+        if (isVowel(str[i])) {
+            y += str[i];
+        } else {
+            y += str[i] + "o" + str[i]
+        }
+    }
+    return y;
+}
 
 console.assert(rovarspraket("a") === "a")
 console.assert(rovarspraket("b") === "bob")
@@ -50,7 +77,13 @@ console.assert(rovarspraket(0) === "0")
 // of a string. For example, reverse("jag testar") should 
 // return the string "ratset gaj".
 // ---------------------
+function reverse(str) {
+    var separate = str.split("");
+    var word = separate.reverse();
+    var join = word.join("");
 
+    return join;
+}
 
 console.assert(reverse("books") === "skoob")
 console.assert(reverse("we don't want no trouble") === "elbuort on tnaw t'nod ew")
